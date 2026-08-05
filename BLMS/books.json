@@ -1,162 +1,170 @@
 [
-	{
+    {
         "book_id": 1,
-    	"title": "Sapiens",
+        "title": "Sapiens",
         "author": "Yuval Noah Harari",
-    	"genre": "history",
-    	"pages": 443,
+        "genre": "history",
+        "pages": 443,
         "rating": 4.8
-	},
-	{
+    },
+    {
         "book_id": 2,
-    	"title": "The Alchemist",
+        "title": "The Alchemist",
         "author": "Paulo Coelho",
-    	"genre": "fiction",
-    	"pages": 208,
+        "genre": "fiction",
+        "pages": 208,
         "rating": 4.5
-	},
-	{
+    },
+    {
         "book_id": 3,
-    	"title": "A Brief History of Time",
+        "title": "A Brief History of Time",
         "author": "Stephen Hawking",
-    	"genre": "science",
-    	"pages": 212,
+        "genre": "science",
+        "pages": 212,
         "rating": 4.6
-	},
-	{
+    },
+    {
         "book_id": 4,
-    	"title": "To Kill a Mockingbird",
+        "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
-    	"genre": "fiction",
-    	"pages": 281,
+        "genre": "fiction",
+        "pages": 281,
         "rating": 4.8
-	},
-	{
+    },
+    {
         "book_id": 5,
-    	"title": "1984",
+        "title": "1984",
         "author": "George Orwell",
-    	"genre": "fiction",
-    	"pages": 328,
+        "genre": "fiction",
+        "pages": 328,
         "rating": 4.7
-	},
-	{
+    },
+    {
         "book_id": 6,
-    	"title": "The Great Gatsby",
+        "title": "The Great Gatsby",
         "author": "F. Scott Fitzgerald",
-    	"genre": "fiction",
-    	"pages": 180,
+        "genre": "fiction",
+        "pages": 180,
         "rating": 4.4
-	},
-	{
+    },
+    {
         "book_id": 7,
-    	"title": "Cosmos",
+        "title": "Cosmos",
         "author": "Carl Sagan",
-    	"genre": "science",
-    	"pages": 365,
+        "genre": "science",
+        "pages": 365,
         "rating": 4.7
-	},
-	{
+    },
+    {
         "book_id": 8,
-    	"title": "The Art of War",
+        "title": "The Art of War",
         "author": "Sun Tzu",
-    	"genre": "philosophy",
-    	"pages": 68,
+        "genre": "philosophy",
+        "pages": 68,
         "rating": 4.6
-	},
-	{
+    },
+    {
         "book_id": 9,
-    	"title": "Atomic Habits",
+        "title": "Atomic Habits",
         "author": "James Clear",
-    	"genre": "self-help",
-    	"pages": 320,
+        "genre": "self-help",
+        "pages": 320,
         "rating": 4.9
-	},
-	{
+    },
+    {
         "book_id": 10,
-    	"title": "The Catcher in the Rye",
+        "title": "The Catcher in the Rye",
         "author": "J.D. Salinger",
-    	"genre": "fiction",
-    	"pages": 234,
+        "genre": "fiction",
+        "pages": 234,
         "rating": 4.3
-	},
-	{
+    },
+    {
         "book_id": 11,
-    	"title": "The Hobbit",
+        "title": "The Hobbit",
         "author": "J.R.R. Tolkien",
-    	"genre": "fantasy",
-    	"pages": 310,
+        "genre": "fantasy",
+        "pages": 310,
         "rating": 4.9
-	},
-	{
+    },
+    {
         "book_id": 12,
-    	"title": "Clean Code",
+        "title": "Clean Code",
         "author": "Robert C. Martin",
-    	"genre": "technology",
-    	"pages": 464,
+        "genre": "technology",
+        "pages": 464,
         "rating": 4.6
-	},
-	{
+    },
+    {
         "book_id": 13,
-    	"title": "The Pragmatic Programmer",
+        "title": "The Pragmatic Programmer",
         "author": "Andrew Hunt & David Thomas",
-    	"genre": "technology",
-    	"pages": 352,
+        "genre": "technology",
+        "pages": 352,
         "rating": 4.7
-	},
-	{
+    },
+    {
         "book_id": 14,
-    	"title": "Guns, Germs, and Steel",
+        "title": "Guns, Germs, and Steel",
         "author": "Jared Diamond",
-    	"genre": "history",
-    	"pages": 480,
+        "genre": "history",
+        "pages": 480,
         "rating": 4.5
-	},
-	{
+    },
+    {
         "book_id": 15,
-    	"title": "The Power of Habit",
+        "title": "The Power of Habit",
         "author": "Charles Duhigg",
-    	"genre": "self-help",
-    	"pages": 371,
+        "genre": "self-help",
+        "pages": 371,
         "rating": 4.4
-	},
-	{
+    },
+    {
         "book_id": 16,
-    	"title": "Dune",
+        "title": "Dune",
         "author": "Frank Herbert",
-    	"genre": "fantasy",
-    	"pages": 688,
+        "genre": "fantasy",
+        "pages": 688,
         "rating": 4.7
-	},
-	{
+    },
+    {
         "book_id": 17,
-    	"title": "The Selfish Gene",
+        "title": "The Selfish Gene",
         "author": "Richard Dawkins",
-    	"genre": "science",
-    	"pages": 360,
+        "genre": "science",
+        "pages": 360,
         "rating": 4.5
-	},
-	{
+    },
+    {
         "book_id": 18,
-    	"title": "Meditations",
+        "title": "Meditations",
         "author": "Marcus Aurelius",
-    	"genre": "philosophy",
-    	"pages": 304,
+        "genre": "philosophy",
+        "pages": 304,
         "rating": 4.7
-	},
-	{
+    },
+    {
         "book_id": 19,
-    	"title": "The Da Vinci Code",
+        "title": "The Da Vinci Code",
         "author": "Dan Brown",
-    	"genre": "thriller",
-    	"pages": 489,
+        "genre": "thriller",
+        "pages": 489,
         "rating": 4.2
-	},
-	{
+    },
+    {
         "book_id": 20,
-    	"title": "Steve Jobs",
+        "title": "Steve Jobs",
         "author": "Walter Isaacson",
-    	"genre": "biography",
-    	"pages": 656,
+        "genre": "biography",
+        "pages": 656,
         "rating": 4.5
-	}
+    },
+    {
+        "book_id": 21,
+        "title": "Some Book",
+        "author": "Some Author",
+        "genre": "fiction",
+        "pages": 300,
+        "rating": 4.5
+    }
 ]
