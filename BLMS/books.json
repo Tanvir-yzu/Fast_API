@@ -1,19 +1,19 @@
 [
     {
-        "book_id": 1,
-        "title": "Sapiens",
-        "author": "Yuval Noah Harari",
-        "genre": "history",
-        "pages": 443,
-        "rating": 4.8
+        "book_id": "1",
+        "title": "Some Bookhh",
+        "author": "Some Author",
+        "genre": "fiction",
+        "pages": 300,
+        "rating": 4.5
     },
     {
         "book_id": 2,
-        "title": "The Alchemist",
-        "author": "Paulo Coelho",
+        "title": "Some Bookhh",
+        "author": "Some Author",
         "genre": "fiction",
-        "pages": 208,
-        "rating": 4.5
+        "pages": 600,
+        "rating": 5
     },
     {
         "book_id": 3,
@@ -157,14 +157,6 @@
         "author": "Walter Isaacson",
         "genre": "biography",
         "pages": 656,
-        "rating": 4.5
-    },
-    {
-        "book_id": 21,
-        "title": "Some Book",
-        "author": "Some Author",
-        "genre": "fiction",
-        "pages": 300,
         "rating": 4.5
     }
 ]

@@ -75,4 +75,52 @@ def create_book(book: dict = Body(..., description="The book data including book
         raise HTTPException(status_code=500, detail=f"Failed to save book data: {str(e)}")
     return {"message": "Book created successfully", "book": book}
 
+@app.put("/books/{book_id}")
+def update_book(book_id: int = Path(..., description="The ID of the book to update", example=1), book: dict = Body(..., description="The updated book data including title, author, etc.")):
+    required_fields = ["title", "author"]
+    missing_fields = [field for field in required_fields if field not in book]
+    if missing_fields:
+        raise HTTPException(status_code=400, detail=f"Missing required fields: {', '.join(missing_fields)}")
+    books = load_books_data()
+    for existing_book in books:
+        if str(existing_book["book_id"]) == str(book_id):
+            # Prevent updating the book_id
+            body_without_id = {k: v for k, v in book.items() if k != "book_id"}
+            existing_book.update(body_without_id)
+            break
+    else:
+        raise HTTPException(status_code=404, detail="Book not found")
+    try:
+        with open("books.json", "w") as f:
+            json.dump(books, f, indent=4)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to save book data: {str(e)}")
+    return {"message": "Book updated successfully", "book": existing_book}
 
+@app.delete("/books/{book_id}")
+def delete_book(book_id: int = Path(..., description="The ID of the book to delete", example=1)):
+    books = load_books_data()
+    for book in books:
+        if str(book["book_id"]) == str(book_id):
+            books.remove(book)
+            try:
+                with open("books.json", "w") as f:
+                    json.dump(books, f, indent=4)
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=f"Failed to delete book data: {str(e)}")
+            return {"message": "Book deleted successfully"}
+    raise HTTPException(status_code=404, detail="Book not found")
+
+@app.get("/search")
+def search_books(query: str = Query(..., description="The search query")):
+    books = load_books_data()
+    results = []
+    for book in books:
+        if (query in str(book.get("book_id", "")) or
+            query in str(book.get("title", "")) or
+            query in str(book.get("author", "")) or
+            query in str(book.get("genre", "")) or
+            query in str(book.get("pages", "")) or
+            query in str(book.get("rating", ""))):
+            results.append(book)
+    return {"books": results}
