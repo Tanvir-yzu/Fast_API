@@ -1,6 +1,6 @@
 [
     {
-        "book_id": "1",
+        "book_id": 1,
         "title": "Some Bookhh",
         "author": "Some Author",
         "genre": "fiction",
