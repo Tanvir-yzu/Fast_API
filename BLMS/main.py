@@ -13,6 +13,10 @@ def load_books_data():
         raise HTTPException(status_code=404, detail="JSON file not found")
     return books
 
+
+__________________________________________________________________________________________________
+______________________________________get__________________________________________________________
+
 @app.get("/books")
 def get_all_books():
     books = load_books_data()
@@ -50,7 +54,27 @@ def get_book(book_id: int = Path(..., description="The ID of the book to get", e
         if str(book["book_id"]) == str(book_id):
             return {"book": book}
     raise HTTPException(status_code=404, detail="Book not found")
-@app.post("/creat_books")
+
+@app.get("/search")
+def search_books(query: str = Query(..., description="The search query")):
+    books = load_books_data()
+    results = []
+    for book in books:
+        if (query in str(book.get("book_id", "")) or
+            query in str(book.get("title", "")) or
+            query in str(book.get("author", "")) or
+            query in str(book.get("genre", "")) or
+            query in str(book.get("pages", "")) or
+            query in str(book.get("rating", ""))):
+            results.append(book)
+    return {"books": results}
+
+
+__________________________________________________________________________________________________________________________________
+________________________________________post_____________________________________________________________________________________
+
+
+@app.post("/create_books")
 def create_book(book: dict = Body(..., description="The book data including book_id, title, author, etc.")):
     book_id = book.get("book_id")
     if book_id is None:
@@ -75,6 +99,11 @@ def create_book(book: dict = Body(..., description="The book data including book
         raise HTTPException(status_code=500, detail=f"Failed to save book data: {str(e)}")
     return {"message": "Book created successfully", "book": book}
 
+__________________________________________________________________________________________________________________________________
+________________________________________put_____________________________________________________________________________________
+
+
+
 @app.put("/books/{book_id}")
 def update_book(book_id: int = Path(..., description="The ID of the book to update", example=1), book: dict = Body(..., description="The updated book data including title, author, etc.")):
     required_fields = ["title", "author"]
@@ -97,6 +126,11 @@ def update_book(book_id: int = Path(..., description="The ID of the book to upda
         raise HTTPException(status_code=500, detail=f"Failed to save book data: {str(e)}")
     return {"message": "Book updated successfully", "book": existing_book}
 
+__________________________________________________________________________________________________________________________________
+________________________________________delete_____________________________________________________________________________________
+
+
+
 @app.delete("/books/{book_id}")
 def delete_book(book_id: int = Path(..., description="The ID of the book to delete", example=1)):
     books = load_books_data()
@@ -111,16 +145,4 @@ def delete_book(book_id: int = Path(..., description="The ID of the book to dele
             return {"message": "Book deleted successfully"}
     raise HTTPException(status_code=404, detail="Book not found")
 
-@app.get("/search")
-def search_books(query: str = Query(..., description="The search query")):
-    books = load_books_data()
-    results = []
-    for book in books:
-        if (query in str(book.get("book_id", "")) or
-            query in str(book.get("title", "")) or
-            query in str(book.get("author", "")) or
-            query in str(book.get("genre", "")) or
-            query in str(book.get("pages", "")) or
-            query in str(book.get("rating", ""))):
-            results.append(book)
-    return {"books": results}
+
