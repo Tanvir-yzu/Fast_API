@@ -1,7 +1,7 @@
 from typing import Any
 
 
-from fastapi import FastAPI,Path,HTTPException,Query
+from fastapi import FastAPI,Path,HTTPException,Query,Body
 import json
 
 app = FastAPI()
@@ -11,7 +11,7 @@ def load_data():
         with open("students.json", "r") as f:
             students = json.load(f)
     except FileNotFoundError:
-        raise HTTPException(status_code=404, detail="JSON file not fou  nd")
+        raise HTTPException(status_code=404, detail="JSON file not found")
     return students
 
 class StudentView:
@@ -62,3 +62,16 @@ class StudentView:
         if student_id not in students:
             raise HTTPException(status_code=404, detail="Student not found")
         return {"student": students[student_id]}
+    
+    @staticmethod
+    @app.post("/create_student")
+    def create_student(student: dict = Body(...)):
+        students = load_data()
+        if "id" not in student:
+            raise HTTPException(status_code=400, detail="Student ID is required")
+        if student["id"] in students:
+            raise HTTPException(status_code=400, detail="Student ID already exists")
+        students[student["id"]] = student
+        with open("students.json", "w") as f:
+            json.dump(students, f, indent=4)
+        return {"message": "Student created successfully"}
