@@ -1,5 +1,11 @@
 from fastapi import FastAPI
+from database import engine, Base
+from models import BookModel  # noqa: F401 — ensure models are registered
 from routers import books
+from admin import setup_admin
+
+# Create database tables
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Modern Book Management API",
@@ -9,6 +15,9 @@ app = FastAPI(
 
 # Include the books router
 app.include_router(books.router)
+
+# Setup SQLAdmin (admin panel at /admin)
+setup_admin(app)
 
 @app.get("/")
 def root():
